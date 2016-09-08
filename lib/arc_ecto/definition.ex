@@ -21,8 +21,8 @@ defmodule Arc.Ecto.Definition do
             %Ecto.DateTime{} ->
               stamp = :calendar.datetime_to_gregorian_seconds(Ecto.DateTime.to_erl(updated_at))
               case URI.parse(url).query do
-                nil -> url <> "?v=#{stamp}"
-                _ -> url <> "&v=#{stamp}"
+                nil -> url <> "?vsn=#{stamp}"
+                _ -> url <> "&vsn=#{stamp}"
               end
             _ -> url
           end
